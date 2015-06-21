@@ -1,8 +1,10 @@
 <?php
-error_reporting(E_ALL);
+// error_reporting(E_ALL);
+error_reporting(0);
 set_time_limit(0);
 
-include_once './Socket/Socket.php';
+include_once 'Socket.php';
+
 /**
  * Remcached Cliend
  * @author ruansheng
@@ -27,7 +29,8 @@ class Remcached {
 	 * @param key string
 	 */
 	public function get($key){
-		
+		$output=$this->Socket->send($key);
+		return $output;
 	}
 	
 	/**
